@@ -1,6 +1,6 @@
 const AWS = require('aws-sdk');
 exports.handler = async (event) => {
-    const sqs = new AWS.SQS();
+    const sqs = new AWS.SQS({region: 'us-east-1'});
     const S3 = new AWS.S3();
     let content = [];
     const options = {
@@ -9,7 +9,7 @@ exports.handler = async (event) => {
     };
     try {
         const params = {
-            QueueUrl: 'https://sqs.eu-central-1.amazonaws.com/310796145073/message'
+            QueueUrl: 'https://sqs.us-east-1.amazonaws.com/310796145073/message'
         };
         const response = {
             statusCode: 200,

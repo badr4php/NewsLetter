@@ -10,7 +10,7 @@ exports.handler = async (event) => {
                 }
             },
             MessageBody: body.text,
-            QueueUrl: "https://sqs.eu-central-1.amazonaws.com/310796145073/message"
+            QueueUrl: "https://sqs.us-east-1.amazonaws.com/310796145073/message"
         };
     try {
             const data = await sqs.sendMessage(params).promise();
