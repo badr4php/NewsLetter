@@ -10,14 +10,13 @@ exports.handler = async (event) => {
                 }
             },
             MessageBody: body.text,
-            QueueUrl: "https://sqs.us-east-1.amazonaws.com/310796145073/message"
+            QueueUrl: "https://sqs.us-east-1.amazonaws.com/310796145073/lambada-message"
         };
     try {
             const data = await sqs.sendMessage(params).promise();
-            console.log("Success", data.MessageId);
             const response = {
                 statusCode: 200,
-                body: JSON.stringify({MessageId: data.MessageId}),
+                body: JSON.stringify({data}),
             };
             return response;
     } catch (error) {
